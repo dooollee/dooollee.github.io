@@ -6,182 +6,161 @@
 <title>이도울 포트폴리오</title>
 <meta name="description" content="실제로 쓰이는 서비스를 만드는 프론트엔드 개발자 이도울의 포트폴리오">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#f3efe6; --ink:#141414; --muted:#6b665c; --line:#141414;
-  --accent:#ff4d1c; --accent-ink:#fff; --green:#1f8a4c; --card:#fffdf8;
-  --grid:rgba(20,20,20,.06);
+  --paper:#f7f5f0; --ink:#1a1a1a; --muted:#6f6b63; --line:#dedad1; --strong:#1a1a1a;
+  --accent:#e0531f; --accent-ink:#fff; --green:#1f8a4c; --card:#fff;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --paper:#121212; --ink:#f0ece2; --muted:#a39d90; --line:#f0ece2;
-    --accent:#ff6a3d; --accent-ink:#121212; --green:#4cc382; --card:#1b1b1b;
-    --grid:rgba(240,236,226,.05);
+    --paper:#141414; --ink:#ecebe6; --muted:#9a968d; --line:#2c2b29; --strong:#ecebe6;
+    --accent:#ff7a45; --accent-ink:#141414; --green:#4cc382; --card:#1c1c1b;
   }
 }
 :root[data-theme="dark"]{
-  --paper:#121212; --ink:#f0ece2; --muted:#a39d90; --line:#f0ece2;
-  --accent:#ff6a3d; --accent-ink:#121212; --green:#4cc382; --card:#1b1b1b;
-  --grid:rgba(240,236,226,.05);
+  --paper:#141414; --ink:#ecebe6; --muted:#9a968d; --line:#2c2b29; --strong:#ecebe6;
+  --accent:#ff7a45; --accent-ink:#141414; --green:#4cc382; --card:#1c1c1b;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{
-  background:var(--paper); color:var(--ink);
-  font-family:"Noto Sans KR",system-ui,sans-serif; line-height:1.65; word-break:keep-all;
-  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-  background-size:32px 32px;
-}
+body{background:var(--paper);color:var(--ink);font-family:"Noto Sans KR",system-ui,sans-serif;line-height:1.7;word-break:keep-all;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-.mono{font-family:"IBM Plex Mono",monospace}
-.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+b{font-weight:700}
+code,.mono{font-family:"IBM Plex Mono",monospace;font-size:.9em}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
 
 /* top bar */
-.bar{position:sticky;top:0;z-index:10;background:var(--ink);color:var(--paper);font-family:"IBM Plex Mono",monospace;font-size:13px}
-.bar .wrap{display:flex;gap:20px;align-items:center;height:42px;overflow-x:auto;white-space:nowrap}
-.bar a{text-decoration:none;opacity:.8}.bar a:hover{opacity:1;color:var(--accent)}
-.bar .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;margin-right:6px;animation:blink 1.6s infinite}
-.bar button{margin-left:auto;background:none;border:1px solid currentColor;color:inherit;font:inherit;padding:2px 10px;cursor:pointer}
-@keyframes blink{50%{opacity:.2}}
+.bar{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--paper) 85%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);font-family:"IBM Plex Mono",monospace;font-size:13px}
+.bar .wrap{display:flex;gap:22px;align-items:center;height:52px;overflow-x:auto;white-space:nowrap}
+.bar a{text-decoration:none;color:var(--muted)}.bar a:hover{color:var(--ink)}
+.bar .dot{display:none}
+.bar button{margin-left:auto;background:none;border:1px solid var(--line);border-radius:999px;color:var(--muted);font:inherit;padding:3px 12px;cursor:pointer}
 
 /* hero */
-.hero{padding:72px 0 40px;border-bottom:3px solid var(--line)}
-.tag{display:inline-block;border:2px solid var(--line);padding:2px 10px;font-size:13px;font-family:"IBM Plex Mono",monospace;background:var(--card)}
-.hero h1{font-family:"Black Han Sans",sans-serif;font-weight:400;font-size:clamp(44px,9vw,108px);line-height:1.02;letter-spacing:-.02em;margin:22px 0 18px}
+.hero{padding:120px 0 80px}
+.tag{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted)}
+.hero h1{font-weight:800;font-size:clamp(40px,7vw,80px);line-height:1.15;letter-spacing:-.035em;margin:20px 0 28px}
 .hero h1 em{font-style:normal;color:var(--accent)}
-.hero h1 .strike{position:relative;color:var(--muted)}
-.hero h1 .strike::after{content:"";position:absolute;left:-2%;right:-2%;top:52%;height:.1em;background:var(--accent);transform:rotate(-3deg)}
-.hero p.lead{font-size:clamp(17px,2.2vw,21px);max-width:720px}
-.hero p.lead b{background:linear-gradient(transparent 60%,color-mix(in srgb,var(--accent) 35%,transparent) 60%)}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border:3px solid var(--line);margin-top:44px;background:var(--card)}
-.stats div{padding:18px 16px;border-right:3px solid var(--line)}
-.stats div:last-child{border-right:0}
-.stats strong{display:block;font-family:"Black Han Sans",sans-serif;font-weight:400;font-size:clamp(30px,5vw,48px);line-height:1}
+.hero h1 .strike{color:var(--muted);text-decoration:line-through;text-decoration-thickness:.06em;text-decoration-color:var(--accent)}
+.hero p.lead{font-size:clamp(17px,2vw,19px);max-width:640px;color:var(--muted)}
+.hero p.lead b{color:var(--ink)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:72px;border-top:1px solid var(--line)}
+.stats div{padding:22px 0 0}
+.stats strong{display:block;font-weight:800;font-size:clamp(28px,4vw,40px);letter-spacing:-.02em;line-height:1.1}
 .stats span{font-size:13px;color:var(--muted)}
 
-/* marquee */
-.marquee{overflow:hidden;background:var(--accent);color:var(--accent-ink);border-bottom:3px solid var(--line);font-family:"Black Han Sans",sans-serif;font-size:26px;white-space:nowrap}
-.marquee div{display:inline-block;padding:10px 0;animation:slide 28s linear infinite}
-@keyframes slide{to{transform:translateX(-50%)}}
-
 /* sections */
-section{padding:88px 0;border-bottom:3px solid var(--line)}
-.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:40px;flex-wrap:wrap}
-.sec-head .no{font-family:"IBM Plex Mono",monospace;font-size:14px;border:2px solid var(--line);padding:0 8px}
-.sec-head h2{font-family:"Black Han Sans",sans-serif;font-weight:400;font-size:clamp(36px,6vw,64px);line-height:1}
+section{padding:112px 0;border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:64px;flex-wrap:wrap}
+.sec-head .no{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--accent)}
+.sec-head h2{font-weight:800;font-size:clamp(30px,4.5vw,44px);letter-spacing:-.03em;line-height:1.1}
 .sec-head p{color:var(--muted);flex-basis:100%}
 
 /* project */
-.proj{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:start}
-.proj + .proj{margin-top:96px;padding-top:72px;border-top:2px dashed var(--line)}
-.kicker{font-family:"IBM Plex Mono",monospace;font-size:13px;display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-.kicker span{border:2px solid var(--line);padding:0 8px;background:var(--card)}
-.kicker .live{background:var(--green);color:#fff;border-color:var(--green)}
+.proj{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:start}
+.proj + .proj{margin-top:120px;padding-top:120px;border-top:1px solid var(--line)}
+.kicker{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);display:flex;gap:6px 14px;flex-wrap:wrap;margin-bottom:16px}
+.kicker .live{color:var(--green)}
 .kicker .live::before{content:"● "}
-.proj h3{font-family:"Black Han Sans",sans-serif;font-weight:400;font-size:clamp(34px,5vw,56px);line-height:1.05}
-.proj .one{font-size:19px;font-weight:700;margin:10px 0 24px}
-.pitch{border-left:6px solid var(--accent);padding:4px 0 4px 18px;margin-bottom:28px;font-size:16px}
-.pitch li{list-style:none;margin:4px 0}
-.pitch li b{color:var(--accent)}
-h4{font-size:14px;font-family:"IBM Plex Mono",monospace;letter-spacing:.05em;margin:28px 0 12px;text-transform:uppercase}
-.issues{display:grid;gap:12px}
-.issue{border:2px solid var(--line);background:var(--card);padding:14px 16px}
-.issue .q{font-weight:700;display:flex;gap:10px}
-.issue .q::before{content:"BUG";font-family:"IBM Plex Mono",monospace;font-size:11px;background:var(--ink);color:var(--paper);padding:1px 6px;height:fit-content;margin-top:3px;flex-shrink:0}
-.issue .a{color:var(--muted);font-size:15px;margin-top:6px;padding-left:44px;position:relative}
-.issue .a::before{content:"→";position:absolute;left:18px;color:var(--accent);font-weight:700}
+.proj h3{font-weight:800;font-size:clamp(30px,4vw,42px);letter-spacing:-.03em;line-height:1.15}
+.proj .one{font-size:17px;color:var(--muted);margin:6px 0 32px}
+.pitch{border-left:2px solid var(--accent);padding:2px 0 2px 18px;margin-bottom:28px}
+.pitch li{list-style:none;margin:6px 0}
+.proj > div > p{color:var(--muted)}
+.proj > div > p b{color:var(--ink)}
+h4{font-size:12px;font-family:"IBM Plex Mono",monospace;color:var(--muted);font-weight:400;margin:48px 0 16px}
+.issues{border-top:1px solid var(--line)}
+.issue{border-bottom:1px solid var(--line);padding:18px 0}
+.issue .q{font-weight:700}
+.issue .a{color:var(--muted);font-size:15px;margin-top:6px}
+.issue .a::before{content:"→ ";color:var(--accent)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
-.chips span{font-family:"IBM Plex Mono",monospace;font-size:12px;border:1px solid var(--line);padding:2px 8px}
-.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
-.btn{display:inline-block;text-decoration:none;font-weight:700;border:3px solid var(--line);padding:10px 18px;background:var(--card);box-shadow:5px 5px 0 var(--line);transition:transform .15s,box-shadow .15s}
-.btn:hover{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--line)}
-.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.chips span{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:36px}
+.btn{display:inline-block;text-decoration:none;font-weight:500;font-size:15px;border:1px solid var(--strong);border-radius:999px;padding:10px 20px;transition:background .2s,color .2s,border-color .2s}
+.btn:hover{background:var(--strong);color:var(--paper)}
+.btn.primary{background:var(--strong);color:var(--paper)}
+.btn.primary:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 
 /* receipt */
-.receipt{position:sticky;top:70px;background:#fffdf8;color:#141414;font-family:"IBM Plex Mono",monospace;font-size:13px;padding:26px 22px 34px;box-shadow:8px 8px 0 var(--line);transform:rotate(1.4deg);
-  -webkit-mask:radial-gradient(circle 7px at 50% 100%,transparent 98%,#000) 50% 100%/18px 100% repeat-x;mask:radial-gradient(circle 7px at 50% 100%,transparent 98%,#000) 50% 100%/18px 100% repeat-x}
+.receipt{position:sticky;top:90px;background:#fff;color:#1a1a1a;font-family:"IBM Plex Mono",monospace;font-size:13px;padding:28px 24px 36px;box-shadow:0 20px 40px -24px rgba(0,0,0,.3);
+  -webkit-mask:radial-gradient(circle 6px at 50% 100%,transparent 98%,#000) 50% 100%/16px 100% repeat-x;mask:radial-gradient(circle 6px at 50% 100%,transparent 98%,#000) 50% 100%/16px 100% repeat-x}
 .receipt .c{text-align:center}
-.receipt hr{border:0;border-top:1px dashed #141414;margin:12px 0}
+.receipt hr{border:0;border-top:1px dashed #bbb;margin:14px 0}
 .receipt .row{display:flex;justify-content:space-between;gap:8px}
-.receipt .big{font-size:22px;font-weight:600}
-.receipt .bar2{height:10px;background:#e7e2d6;margin:6px 0 2px}
-.receipt .bar2 i{display:block;height:100%;background:#ff4d1c;width:0;transition:width 1.4s ease}
+.receipt .big{font-size:18px;font-weight:600}
+.receipt .bar2{height:6px;background:#eee9df;margin:6px 0 4px;border-radius:3px;overflow:hidden}
+.receipt .bar2 i{display:block;height:100%;background:#e0531f;width:0;transition:width 1.2s ease}
 .receipt.in .bar2 i{width:var(--w)}
-.receipt .kakao{background:#fee500;padding:10px;margin-top:10px;border-radius:4px;font-size:12px;line-height:1.5}
-.receipt .barcode{height:38px;margin-top:14px;background:repeating-linear-gradient(90deg,#141414 0 2px,transparent 2px 4px,#141414 4px 5px,transparent 5px 8px,#141414 8px 11px,transparent 11px 12px)}
+.receipt .kakao{background:#fee500;padding:12px;margin-top:12px;border-radius:8px;font-size:12px;line-height:1.6}
+.receipt .barcode{height:30px;margin-top:16px;opacity:.8;background:repeating-linear-gradient(90deg,#1a1a1a 0 2px,transparent 2px 4px,#1a1a1a 4px 5px,transparent 5px 8px,#1a1a1a 8px 11px,transparent 11px 12px)}
 
 /* game card */
-.game{position:sticky;top:70px;background:#15131f;color:#f3efe6;border:3px solid var(--line);box-shadow:8px 8px 0 var(--accent);transform:rotate(-1.2deg);font-family:"IBM Plex Mono",monospace}
-.game .top{display:flex;justify-content:space-between;padding:10px 14px;border-bottom:2px solid #f3efe6;font-size:12px}
-.game .title{font-family:"Black Han Sans",sans-serif;font-size:30px;padding:16px 14px 4px;letter-spacing:.02em}
-.game .sub{padding:0 14px 12px;font-size:12px;color:#a8a3c7}
-.player{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;padding:10px 14px;border-top:1px solid #34304a;font-size:13px}
-.player .av{width:34px;height:34px;display:grid;place-items:center;border:2px solid currentColor;font-weight:600}
-.player .role{font-size:11px;padding:1px 6px;border:1px solid currentColor}
-.player small{display:block;color:#a8a3c7;font-size:11px;line-height:1.4}
-.player.me{background:#ff4d1c;color:#15131f}
-.player.me small{color:#15131f}
-.player.me .role{background:#15131f;color:#ff4d1c;border-color:#15131f}
-.game .hp{padding:12px 14px 16px;border-top:2px solid #f3efe6;font-size:12px}
+.game{position:sticky;top:90px;background:#18161f;color:#ecebe6;border-radius:14px;overflow:hidden;font-family:"IBM Plex Mono",monospace;box-shadow:0 20px 40px -24px rgba(0,0,0,.4)}
+.game .top{display:flex;justify-content:space-between;padding:12px 18px;font-size:11px;color:#8d89a6;border-bottom:1px solid #2c2939}
+.game .title{font-family:"Noto Sans KR",sans-serif;font-weight:800;font-size:24px;padding:18px 18px 2px}
+.game .sub{padding:0 18px 14px;font-size:11px;color:#8d89a6}
+.player{display:grid;grid-template-columns:32px 1fr auto;gap:12px;align-items:center;padding:12px 18px;border-top:1px solid #2c2939;font-size:13px}
+.player .av{width:32px;height:32px;display:grid;place-items:center;border-radius:50%;background:#2c2939;font-weight:600}
+.player .role{font-size:11px;color:#8d89a6}
+.player small{display:block;color:#8d89a6;font-size:11px;line-height:1.5}
+.player.me{background:#221f2c}
+.player.me .av{background:#e0531f;color:#fff}
+.player.me .role{color:#ff7a45}
+.game .hp{padding:14px 18px 18px;border-top:1px solid #2c2939;font-size:11px;color:#8d89a6}
 .game .hp .row{display:flex;justify-content:space-between}
-.game .hp .meter{height:12px;border:2px solid #f3efe6;margin:4px 0 10px;padding:1px}
-.game .hp .meter i{display:block;height:100%;background:#7dff9a;width:var(--w)}
+.game .hp .meter{height:4px;background:#2c2939;border-radius:2px;margin:6px 0 12px;overflow:hidden}
+.game .hp .meter i{display:block;height:100%;background:#7ddf9a;width:var(--w)}
 
-.roles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.roles div{border:2px solid var(--line);padding:14px;background:var(--card)}
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:28px 32px}
 .roles b{display:block;font-size:16px;margin-bottom:4px}
 .roles p{font-size:14px;color:var(--muted)}
 
-/* timeline as git graph */
-.log{position:relative;padding-left:44px}
-.log::before{content:"";position:absolute;left:14px;top:6px;bottom:6px;width:3px;background:var(--line)}
-.commit{position:relative;display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px dashed color-mix(in srgb,var(--line) 30%,transparent)}
-.commit::before{content:"";position:absolute;left:-38px;top:20px;width:15px;height:15px;border-radius:50%;background:var(--paper);border:3px solid var(--line)}
-.commit.hl::before{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 30%,transparent)}
-.commit .when{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted);padding-top:2px}
-.commit .hash{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--accent);margin-right:6px}
+/* timeline */
+.log{position:relative;padding-left:32px}
+.log::before{content:"";position:absolute;left:5px;top:10px;bottom:10px;width:1px;background:var(--line)}
+.commit{position:relative;display:grid;grid-template-columns:160px 1fr;gap:20px;padding:16px 0}
+.commit::before{content:"";position:absolute;left:-31px;top:24px;width:9px;height:9px;border-radius:50%;background:var(--paper);border:1px solid var(--muted)}
+.commit.hl::before{background:var(--accent);border-color:var(--accent)}
+.commit .when{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted);padding-top:3px}
+.commit .hash{display:none}
 .commit b{font-size:17px}
 .commit p{font-size:14px;color:var(--muted)}
 
 /* skills */
-.skills{display:grid;grid-template-columns:repeat(3,1fr);border:3px solid var(--line);background:var(--card)}
-.skills > div{padding:22px;border-right:3px solid var(--line)}
-.skills > div:last-child{border-right:0}
-.skills h5{font-family:"IBM Plex Mono",monospace;font-size:13px;margin-bottom:12px;color:var(--accent)}
-.skills ul{list-style:none}
-.skills li{padding:6px 0;border-bottom:1px dashed color-mix(in srgb,var(--line) 30%,transparent);font-size:15px}
-.skills li:last-child{border:0}
-.more{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px}
-.more a{text-decoration:none;border:2px solid var(--line);padding:14px;background:var(--card);display:block}
-.more a:hover{background:var(--ink);color:var(--paper)}
-.more b{font-family:"IBM Plex Mono",monospace;font-size:14px;display:block}
-.more span{font-size:13px;opacity:.75}
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.skills h5{font-family:"IBM Plex Mono",monospace;font-weight:400;font-size:12px;margin-bottom:14px;color:var(--muted)}
+.skills ul{list-style:none;border-top:1px solid var(--line)}
+.skills li{padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.more{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:64px}
+.more a{text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--card);display:block;transition:border-color .2s}
+.more a:hover{border-color:var(--strong)}
+.more b{font-family:"IBM Plex Mono",monospace;font-size:14px;font-weight:600;display:block}
+.more span{font-size:13px;color:var(--muted)}
 
 /* contact */
-.contact{background:var(--ink);color:var(--paper);padding:96px 0 40px;border:0}
-.contact h2{font-family:"Black Han Sans",sans-serif;font-weight:400;font-size:clamp(40px,8vw,96px);line-height:1.05}
+.contact{padding:120px 0 48px}
+.contact h2{font-weight:800;font-size:clamp(34px,6vw,64px);letter-spacing:-.035em;line-height:1.2}
 .contact h2 em{font-style:normal;color:var(--accent)}
-.contact .rows{margin-top:40px;border-top:2px solid var(--paper)}
-.contact .rows a{display:flex;justify-content:space-between;gap:12px;padding:18px 0;border-bottom:2px solid var(--paper);text-decoration:none;font-size:clamp(18px,3vw,28px);font-weight:700}
-.contact .rows a span{font-family:"IBM Plex Mono",monospace;font-size:13px;opacity:.6;font-weight:400;align-self:center}
+.contact .rows{margin-top:56px;border-top:1px solid var(--line)}
+.contact .rows a{display:flex;justify-content:space-between;gap:12px;padding:22px 0;border-bottom:1px solid var(--line);text-decoration:none;font-size:clamp(18px,2.6vw,24px);font-weight:600;transition:color .2s}
+.contact .rows a span{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);font-weight:400;align-self:center}
 .contact .rows a:hover{color:var(--accent)}
-.contact footer{margin-top:60px;font-family:"IBM Plex Mono",monospace;font-size:12px;opacity:.6}
+.contact footer{margin-top:80px;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted)}
 
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .8s,transform .8s}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.marquee div,.bar .dot{animation:none}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
 
 @media (max-width:860px){
-  .proj{grid-template-columns:1fr}
-  .receipt,.game{position:static;transform:none}
-  .stats{grid-template-columns:1fr 1fr}
-  .stats div:nth-child(2){border-right:0}
-  .stats div:nth-child(-n+2){border-bottom:3px solid var(--line)}
-  .skills,.more{grid-template-columns:1fr}
-  .skills > div{border-right:0;border-bottom:3px solid var(--line)}
-  .skills > div:last-child{border-bottom:0}
-  .roles{grid-template-columns:1fr}
+  .hero{padding:72px 0 56px}
+  section{padding:80px 0}
+  .proj{grid-template-columns:1fr;gap:40px}
+  .receipt,.game{position:static}
+  .stats{grid-template-columns:1fr 1fr;row-gap:8px}
+  .skills,.more,.roles{grid-template-columns:1fr}
+  .skills{gap:32px}
   .commit{grid-template-columns:1fr;gap:2px}
 }
 </style>
@@ -212,11 +191,6 @@ h4{font-size:14px;font-family:"IBM Plex Mono",monospace;letter-spacing:.05em;mar
   </div>
 </div></header>
 
-<div class="marquee" aria-hidden="true"><div>
-  ✦ Next.js ✦ React ✦ TypeScript ✦ Tailwind CSS ✦ Zustand ✦ Supabase ✦ Vercel ✦ 실사용자 70명 ✦ 팀 PM ✦ 문제를 끝까지 추적합니다
-  ✦ Next.js ✦ React ✦ TypeScript ✦ Tailwind CSS ✦ Zustand ✦ Supabase ✦ Vercel ✦ 실사용자 70명 ✦ 팀 PM ✦ 문제를 끝까지 추적합니다&nbsp;
-</div></div>
-
 <main>
 <section id="work"><div class="wrap">
   <div class="sec-head"><span class="no">01</span><h2>Selected Work</h2><p>개인 프로젝트 하나, 팀 프로젝트 하나. 각각 "운영"과 "협업"을 보여주는 작업입니다.</p></div>
@@ -235,7 +209,7 @@ h4{font-size:14px;font-family:"IBM Plex Mono",monospace;letter-spacing:.05em;mar
       <p>엑셀 장부와 카톡으로 하던 회비 관리가 불편해서 직접 만들었습니다. 회원은 로그인 없이 집계된 납부 현황·결산만 보고,
         회계팀은 <b>회원 × 12개월 장부</b>에서 칸을 눌러 납부를 체크합니다. 미납액이 자동으로 계산되고 <code class="mono">{이름}</code> <code class="mono">{미납월}</code> 같은 변수를 넣은 안내 문구가 사람마다 채워집니다.</p>
 
-      <h4>// 운영하며 해결한 문제</h4>
+      <h4>운영하며 해결한 문제</h4>
       <div class="issues">
         <div class="issue"><div class="q">주소만 알면 누구나 회원 전화번호를 조회·삭제할 수 있었다</div>
           <div class="a">관리자 API에 인증(서명된 httpOnly 쿠키)을 걸고, 공개 화면에는 서버에서 합산한 숫자만 내려주도록 바꿨습니다.</div></div>
@@ -247,7 +221,7 @@ h4{font-size:14px;font-family:"IBM Plex Mono",monospace;letter-spacing:.05em;mar
           <div class="a">Vercel 환경변수는 재배포해야 적용된다는 걸 확인했고, 설정 오류는 사용자 화면이 아닌 서버 로그에만 남기도록 했습니다.</div></div>
       </div>
 
-      <h4>// Stack</h4>
+      <h4>Stack</h4>
       <div class="chips"><span>Next.js 16 App Router</span><span>React 19</span><span>TypeScript</span><span>Tailwind v4</span><span>Recharts</span><span>Supabase(PostgreSQL)</span><span>Vercel CI/CD</span><span>Claude Code</span></div>
 
       <div class="links">
@@ -290,7 +264,7 @@ h4{font-size:14px;font-family:"IBM Plex Mono",monospace;letter-spacing:.05em;mar
         <li>회원 흐름 전체(헤더 → 로그인 → 회원가입 → 정보 수정)를 맡았습니다.</li>
       </ul>
 
-      <h4>// PM으로서 한 일</h4>
+      <h4>PM으로서 한 일</h4>
       <div class="roles">
         <div><b>프로젝트 뼈대</b><p>첫 PR로 파일 트리 구조와 Prettier 설정을 잡아서 네 명의 코드 스타일이 처음부터 통일되게 했습니다.</p></div>
         <div><b>협업 규칙</b><p>이슈 → 브랜치(<span class="mono">feat/…/이름</span>) → PR 템플릿 → 리뷰 → develop 병합 흐름으로 118개의 PR이 충돌 없이 합쳐졌습니다.</p></div>
@@ -298,7 +272,7 @@ h4{font-size:14px;font-family:"IBM Plex Mono",monospace;letter-spacing:.05em;mar
         <div><b>커뮤니케이션</b><p>Figma 디자인, Notion 문서, Discord로 진행 상황과 결정 사항을 공유했습니다.</p></div>
       </div>
 
-      <h4>// 담당 기능에서 해결한 문제</h4>
+      <h4>담당 기능에서 해결한 문제</h4>
       <div class="issues">
         <div class="issue"><div class="q">SSR 중 localStorage 접근으로 헤더 렌더링 에러</div>
           <div class="a">Next.js는 서버에서도 렌더링된다는 점을 파악해서 최근 검색기록을 읽는 코드를 useEffect(클라이언트) 안으로 옮겼습니다.</div></div>
@@ -308,7 +282,7 @@ h4{font-size:14px;font-family:"IBM Plex Mono",monospace;letter-spacing:.05em;mar
           <div class="a">이메일·별명 중복 확인, 비밀번호 일치 실시간 표시, 서버 액션으로 처리하는 회원정보 수정을 구현했습니다.</div></div>
       </div>
 
-      <h4>// Stack</h4>
+      <h4>Stack</h4>
       <div class="chips"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Zustand</span><span>Server Actions</span><span>Swiper</span><span>MongoDB</span><span>Figma</span><span>Notion</span></div>
 
       <div class="links">
@@ -351,9 +325,9 @@ h4{font-size:14px;font-family:"IBM Plex Mono",monospace;letter-spacing:.05em;mar
 <section id="stack"><div class="wrap">
   <div class="sec-head"><span class="no">03</span><h2>Stack</h2><p>실제 프로젝트에서 써본 것만 적었습니다.</p></div>
   <div class="skills reveal">
-    <div><h5>// FRONTEND</h5><ul><li>Next.js (App Router, Server Actions)</li><li>React · TypeScript</li><li>Tailwind CSS · 반응형 UI</li><li>Zustand · Recharts · Swiper</li></ul></div>
-    <div><h5>// BACKEND & INFRA</h5><ul><li>Next.js Route Handlers</li><li>Supabase · PostgreSQL</li><li>쿠키 기반 인증 직접 구현</li><li>Vercel 자동 배포</li></ul></div>
-    <div><h5>// COLLABORATION</h5><ul><li>Git · GitHub Flow · PR 리뷰</li><li>이슈 / PR 템플릿, 커밋 컨벤션</li><li>Figma · Notion · Discord</li><li>Claude Code (AI 페어 프로그래밍)</li></ul></div>
+    <div><h5>FRONTEND</h5><ul><li>Next.js (App Router, Server Actions)</li><li>React · TypeScript</li><li>Tailwind CSS · 반응형 UI</li><li>Zustand · Recharts · Swiper</li></ul></div>
+    <div><h5>BACKEND & INFRA</h5><ul><li>Next.js Route Handlers</li><li>Supabase · PostgreSQL</li><li>쿠키 기반 인증 직접 구현</li><li>Vercel 자동 배포</li></ul></div>
+    <div><h5>COLLABORATION</h5><ul><li>Git · GitHub Flow · PR 리뷰</li><li>이슈 / PR 템플릿, 커밋 컨벤션</li><li>Figma · Notion · Discord</li><li>Claude Code (AI 페어 프로그래밍)</li></ul></div>
   </div>
   <div class="more reveal">
     <a href="https://github.com/dooollee/faith-id" target="_blank" rel="noopener"><b>faith-id ↗</b><span>얼굴 인식 출석 체크</span></a>
