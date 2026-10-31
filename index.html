@@ -82,6 +82,7 @@ h4{font-size:12px;font-family:"IBM Plex Mono",monospace;color:var(--muted);font-
 .btn:hover{background:var(--strong);color:var(--paper)}
 .btn.primary{background:var(--strong);color:var(--paper)}
 .btn.primary:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.note{font-size:13px;color:var(--muted);margin-top:12px}
 
 /* receipt */
 .receipt{position:sticky;top:90px;background:#fff;color:#1a1a1a;font-family:"IBM Plex Mono",monospace;font-size:13px;padding:28px 24px 36px;box-shadow:0 20px 40px -24px rgba(0,0,0,.3);
@@ -112,6 +113,21 @@ h4{font-size:12px;font-family:"IBM Plex Mono",monospace;color:var(--muted);font-
 .game .hp .row{display:flex;justify-content:space-between}
 .game .hp .meter{height:4px;background:#2c2939;border-radius:2px;margin:6px 0 12px;overflow:hidden}
 .game .hp .meter i{display:block;height:100%;background:#7ddf9a;width:var(--w)}
+
+/* pilgrim game gallery */
+.stage{position:sticky;top:90px;background:#16140f;color:#ecebe6;border-radius:14px;overflow:hidden;font-family:"IBM Plex Mono",monospace;box-shadow:0 20px 40px -24px rgba(0,0,0,.4)}
+.stage .top{display:flex;justify-content:space-between;padding:12px 18px;font-size:11px;color:#a39a82;border-bottom:1px solid #2e2a1f}
+.stage .shot{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+.stage .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .4s}
+.stage .shot img.on{opacity:1}
+.stage .cap{padding:14px 18px 6px;font-family:"Noto Sans KR",sans-serif;font-size:14px;line-height:1.6;min-height:72px}
+.stage .cap small{display:block;font-family:"IBM Plex Mono",monospace;font-size:11px;color:#ff7a45;margin-bottom:2px}
+.stage .thumbs{display:flex;gap:8px;padding:10px 18px 18px}
+.stage .thumbs button{flex:1;padding:0;border:2px solid transparent;border-radius:6px;overflow:hidden;cursor:pointer;background:none;opacity:.55;transition:opacity .2s,border-color .2s}
+.stage .thumbs button.on{opacity:1;border-color:#ff7a45}
+.stage .thumbs img{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:#000}
+.stage .keys{display:flex;justify-content:space-between;align-items:center;padding:14px 18px 18px;border-top:1px solid #2e2a1f;font-size:11px;color:#a39a82}
+.stage .keys kbd{font-family:inherit;border:1px solid #4a4332;border-bottom-width:2px;border-radius:4px;padding:1px 6px;margin-right:2px;color:#ecebe6}
 
 .roles{display:grid;grid-template-columns:1fr 1fr;gap:28px 32px}
 .roles b{display:block;font-size:16px;margin-bottom:4px}
@@ -157,7 +173,7 @@ h4{font-size:12px;font-family:"IBM Plex Mono",monospace;color:var(--muted);font-
   .hero{padding:72px 0 56px}
   section{padding:80px 0}
   .proj{grid-template-columns:1fr;gap:40px}
-  .receipt,.game{position:static}
+  .receipt,.game,.stage{position:static}
   .stats{grid-template-columns:1fr 1fr;row-gap:8px}
   .skills,.more,.roles{grid-template-columns:1fr}
   .skills{gap:32px}
@@ -193,7 +209,7 @@ h4{font-size:12px;font-family:"IBM Plex Mono",monospace;color:var(--muted);font-
 
 <main>
 <section id="work"><div class="wrap">
-  <div class="sec-head"><span class="no">01</span><h2>Selected Work</h2><p>개인 프로젝트 하나, 팀 프로젝트 하나. 각각 "운영"과 "협업"을 보여주는 작업입니다.</p></div>
+  <div class="sec-head"><span class="no">01</span><h2>Selected Work</h2><p>개인 프로젝트 둘, 팀 프로젝트 하나. "운영", "협업", "기획부터 완성까지"를 보여주는 작업입니다.</p></div>
 
   <!-- ANTIOCH -->
   <article class="proj reveal">
@@ -306,11 +322,64 @@ h4{font-size:12px;font-family:"IBM Plex Mono",monospace;color:var(--muted);font-
       </div>
     </aside>
   </article>
+
+  <!-- PILGRIM'S PROGRESS GAME -->
+  <article class="proj reveal">
+    <div>
+      <div class="kicker"><span>개인 프로젝트</span><span>기획 · 개발</span><span>PC 전용</span><span>2026.10</span><!-- TODO: 제작 기간 확인 --></div>
+      <h3>천로역정 PILGRIM'S PROGRESS</h3>
+      <p class="one">방향키로 걷고 NPC와 대화하며 즐기는 3D 웹게임</p>
+      <ul class="pitch">
+        <li><b>11구간</b>, 플레이타임 약 <b>45~60분</b>의 본편을 완성했습니다.</li>
+        <li>구간을 추가하는 <b>확장팩 구조</b>로 설계해서 이어서 만들 수 있습니다.</li>
+        <li>교회의 천로역정 주제 축제 <b>공모전 출품작</b>으로 만들었습니다.</li>
+      </ul>
+      <p>천로역정의 이야기를 읽는 데서 끝내지 않고 <b>직접 걸어가며 체험</b>할 수 있게 만들고 싶었습니다.
+        플레이어는 방향키로 이동하고, NPC와의 대화로 스토리를 따라가며, 구간마다 미니게임을 거칩니다.
+        누구나 링크 하나로 바로 즐길 수 있도록 웹으로 만들었습니다.</p>
+
+      <h4>만든 과정</h4>
+      <div class="issues">
+        <div class="issue"><div class="q">처음 목표는 20분짜리 게임이었다</div>
+          <div class="a">이야기를 줄이는 대신 본편을 11구간·45~60분으로 잡고, 이후 구간을 덧붙이는 확장팩 방식으로 범위를 정했습니다.</div></div>
+        <div class="issue"><div class="q">게임 개발이 처음이라 무엇부터 만들지 막막했다</div>
+          <div class="a">코드보다 먼저 1편 기준 명세서(SPEC.md)를 작성해 구간, 조작, 미니게임을 정리하고 그 문서를 기준으로 개발했습니다.</div></div>
+        <div class="issue"><div class="q">AI가 만들어준 코드를 그대로 쓰면 고칠 수 없다</div>
+          <div class="a">Claude Code와 개발하되 동작 원리를 이해하고 넘어가는 방식으로 진행해서 직접 수정·확장할 수 있게 했습니다.</div></div>
+      </div>
+
+      <h4>Stack</h4>
+      <div class="chips"><span>3D 웹게임</span><span>Claude Code</span><!-- TODO: 실제 사용한 라이브러리/배포 환경 추가 (예: Three.js, Vercel) --></div>
+
+      <div class="links">
+        <a class="btn primary" href="TODO_게임_주소" target="_blank" rel="noopener">게임 플레이 ↗</a>
+        <a class="btn" href="TODO_GITHUB_주소" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <p class="note">* PC 브라우저에서만 플레이할 수 있습니다. (방향키 조작)</p>
+    </div>
+
+    <aside class="stage" aria-label="게임 스크린샷">
+      <div class="top"><span>PC ONLY</span><span id="shotNo">1 / 3</span></div>
+      <div class="shot">
+        <img class="on" src="images/game-1.jpg" alt="짐을 지고 마을 거리를 걷는 순례자" loading="lazy">
+        <img src="images/game-2.jpg" alt="십자가 앞에서 천사들을 만난 순례자" loading="lazy">
+        <img src="images/game-3.jpg" alt="좁은 길 끝에서 붉은 마귀와 마주한 순례자" loading="lazy">
+      </div>
+      <div class="cap" id="shotCap"></div>
+      <div class="thumbs">
+        <button class="on" aria-label="장면 1"><img src="images/game-1.jpg" alt=""></button>
+        <button aria-label="장면 2"><img src="images/game-2.jpg" alt=""></button>
+        <button aria-label="장면 3"><img src="images/game-3.jpg" alt=""></button>
+      </div>
+      <div class="keys"><span><kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd> 이동</span><span>11 STAGES · 확장팩</span></div>
+    </aside>
+  </article>
 </div></section>
 
 <section id="log"><div class="wrap">
   <div class="sec-head"><span class="no">02</span><h2>git log --me</h2><p>하드웨어에서 시작해서 소프트웨어로, 그리고 사람이 실제로 쓰는 서비스로.</p></div>
   <div class="log">
+    <div class="commit hl reveal"><span class="when">2026.10</span><div><span class="hash">p1lgr1m</span><b>천로역정 3D 웹게임 완성</b><p>게임 개발 처음 도전. 명세서부터 작성해 11구간 본편 완성, 교회 축제 공모전 출품</p></div></div>
     <div class="commit hl reveal"><span class="when">2026 ~ 현재</span><div><span class="hash">a1c0unt</span><b>Antioch Accounting 운영</b><p>회원 약 70명 대상 실서비스. 요청을 받아 기능을 추가하고 버그를 고치며 운영 중</p></div></div>
     <div class="commit reveal"><span class="when">2025.03 ~ 2026.02</span><div><span class="hash">d5u2ai0</span><b>동서울대학교 인공지능학과</b><p>학점 3.8 / 4.5</p></div></div>
     <div class="commit reveal"><span class="when">2025.09 ~ 10</span><div><span class="hash">e8e5t01</span><b>이베스트 엔지니어링 연구팀</b><p>사무 업무를 줄이는 자동화 프로그램 개발 및 운영</p></div></div>
@@ -374,6 +443,33 @@ document.querySelectorAll('[data-count]').forEach(el => {
   };
   requestAnimationFrame(tick);
 });
+
+// game gallery
+(() => {
+  const caps = [
+    ['01 · 출발', '무거운 짐을 지고 길을 떠나는 순례자. 마을 사람들을 만나며 이야기가 시작됩니다.'],
+    ['02 · 십자가', '십자가 앞에서 짐을 내려놓는 장면. 천사들이 순례자를 맞이합니다.'],
+    ['03 · 전투', '좁은 골짜기에서 마귀와 마주합니다. 미니게임으로 맞서는 구간입니다.']
+  ];
+  const imgs = document.querySelectorAll('.stage .shot img');
+  const btns = document.querySelectorAll('.stage .thumbs button');
+  const cap = document.getElementById('shotCap'), no = document.getElementById('shotNo');
+  let cur = 0, timer;
+  const show = i => {
+    cur = i;
+    imgs.forEach((im, k) => im.classList.toggle('on', k === i));
+    btns.forEach((b, k) => b.classList.toggle('on', k === i));
+    cap.innerHTML = `<small>${caps[i][0]}</small>${caps[i][1]}`;
+    no.textContent = `${i + 1} / ${caps.length}`;
+  };
+  const auto = () => {
+    clearInterval(timer);
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    timer = setInterval(() => show((cur + 1) % caps.length), 5000);
+  };
+  btns.forEach((b, k) => b.onclick = () => { show(k); auto(); });
+  show(0); auto();
+})();
 </script>
 </body>
 </html>
